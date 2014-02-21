@@ -1,5 +1,5 @@
 EXECUTABLE=tree_analysis
-SOURCES=analysis.cpp Tree.cpp Branch.cpp
+SOURCES=tree_analysis.cpp Tree.cpp Branch.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 CC=g++
 CFLAGS=$(shell root-config --cflags) -Wall -c

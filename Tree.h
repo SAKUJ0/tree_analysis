@@ -4,8 +4,6 @@
 #include <TFile.h>
 #include <TTree.h>
 #include <TH1F.h>
-#include <TDataType.h>
-#include <TClass.h>
 
 class Tree {
       TTree *ttree;

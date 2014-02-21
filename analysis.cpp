@@ -3,7 +3,6 @@
 #include <TApplication.h>
 
 #include "Tree.h"
-#include "Branch.h"
 
 int main(int argc, char **argv) {
 
@@ -12,7 +11,7 @@ int main(int argc, char **argv) {
    TFile *file = new TFile("tree.root", "READ");
    Tree *tree = new Tree(file);
 
-   tree->getHistogram("Run")->Draw();
+   tree->getHistogram("EcalEnergy")->Draw();
    //tree->getTTree()->StartViewer();
 
    theApp.Run();

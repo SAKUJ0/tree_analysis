@@ -1,4 +1,5 @@
 #include "Tree.h"
+#include "Branch.h"
 
 Tree::Tree(TFile *file) {
    TTree *tree;
@@ -31,28 +32,20 @@ void BranchToHist(TBranch *branch, TH1F *hist, Number &var) {
 
 TH1F *Tree::getHistogram(const char* varname, Int_t nbins) const {
 
-   TTree *tree = this->getTTree();
-   TBranch *branch = tree->GetBranch(varname);
+   TH1F *hist = new TH1F("name","title", nbins, 0, 10000000000);
 
-   Double_t min = tree->GetMinimum(varname);
-   Double_t max = tree->GetMaximum(varname);
+   Branch *branch = new Branch(ttree, varname);
 
-   TH1F *hist = new TH1F("name","title", nbins, min, max);
-
-   TClass *tclass = new TClass();
-   EDataType type;
-   branch->GetExpectedType(*&tclass, type);
-
-   if(type == 5) { //5: Float_t
+   if(branch->getType() == 5) { //5: Float_t
       Float_t var;
-      BranchToHist(branch, hist, var);
+      BranchToHist(branch->getTBranch(), hist, var);
    }
-   else if(type == 13) { //13: UInt_t
+   else if(branch->getType() == 13) { //13: UInt_t
       UInt_t var;
-      BranchToHist(branch, hist, var);
+      BranchToHist(branch->getTBranch(), hist, var);
    }
    else
-      std::cerr << "Branch type not float/int. Type ID: " << type << std::endl;
+      std::cerr << "Branch type not float/int. Type ID: " << branch->getType() << std::endl;
 
    return hist;
 }
