@@ -1,9 +1,9 @@
 #include "Branch.h"
 
-Branch::Branch(TTree *tree, const char* varname) {
+Branch::Branch(TTree *tree, std::string varname) {
 
-   name = const_cast<char*>(varname);
-   TBranch *branch = tree->GetBranch(varname);
+   name = varname;
+   TBranch *branch = tree->GetBranch(varname.c_str());
    this->setTBranch(branch);
 }
 
@@ -29,18 +29,18 @@ Int_t Branch::getType() const{
 
 Int_t Branch::getMin() const{
    TTree *tree = this->getTTree();
-   return tree->GetMinimum(name);
+   return tree->GetMinimum(name.c_str());
 }
 
 Int_t Branch::getMax() const{
    TTree *tree = this->getTTree();
-   return tree->GetMaximum(name);
+   return tree->GetMaximum(name.c_str());
 }
 
 TTree *Branch::getTTree() const{
    return tbranch->GetTree();
 }
 
-char *Branch::getName() const{
+std::string Branch::getName() const{
    return name;
 }

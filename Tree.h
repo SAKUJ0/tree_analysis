@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include <TROOT.h>
 #include <TFile.h>
@@ -14,5 +15,5 @@ class Tree {
       TTree *getTTree() const;
       void setTTree(TTree *tree);
 
-      TH1F *getHistogram(const char* varname, Int_t nbins = 100) const;
+      TH1F *getHistogram(std::string varname, Int_t nbins = 100) const;
 };

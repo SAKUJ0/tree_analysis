@@ -30,7 +30,7 @@ void BranchToHist(TBranch *branch, TH1F *hist, Number &var) {
    }
 }
 
-TH1F *Tree::getHistogram(const char* varname, Int_t nbins) const {
+TH1F *Tree::getHistogram(std::string varname, Int_t nbins) const {
 
    TH1F *hist = new TH1F("name","title", nbins, 0, 10000000000);
 

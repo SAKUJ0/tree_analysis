@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include <TROOT.h>
 #include <TTree.h>
@@ -7,10 +8,10 @@
 
 class Branch {
       TBranch *tbranch;
-      char* name;
+      std::string name;
 
    public:
-      Branch(TTree *file, const char* name);
+      Branch(TTree *file, std::string name);
 
       Int_t getSize() const;
       Int_t getType() const;
@@ -18,7 +19,7 @@ class Branch {
       Int_t getMax() const;
       TTree *getTTree() const;
 
-      char *getName() const;
+      std::string getName() const;
       TBranch *getTBranch() const;
       void setTBranch(TBranch *branch);
 };
