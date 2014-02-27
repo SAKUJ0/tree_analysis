@@ -3,7 +3,6 @@
 Tree::Tree(TFile *file) {
    TTree *tree;
    tree = (TTree*)file->Get("LeptonAnalysis");
-   branches.reserve(20);
 
    ttree = tree;
 }
@@ -55,8 +54,7 @@ TH1F *Tree::BranchToHist(bool (*check)(const vector<Float_t>&), Float_t (*transf
 TH1F *Tree::getHistogram(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins) {
 
    Int_t number_of_branches = varname.size();
-   //vector<Branch*> branches(number_of_branches);
-   branches.reserve(number_of_branches+1);
+   branches.resize(number_of_branches);
    for(Int_t i=0; i<number_of_branches; i++)
       branches[i] = new Branch(ttree, varname[i]);
 
