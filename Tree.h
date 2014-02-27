@@ -9,17 +9,18 @@ using std::vector;
 #include <TH1F.h>
 
 #include "Branch.h"
+#include "Histogram.h"
 
 class Tree {
       TTree *ttree;
       vector<Branch*> branches;
-      //vector<TH1F> *histograms;
+      vector<Histogram*> histograms;
 
    public:
-      Tree(TFile *file);
+      Tree(TFile *file, const std::string& name);
 
-      Int_t getSize() const;
+      void setBranch(const std::string& name);
+      Histogram *setHistogram(bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins = 200);
 
-      TH1F *BranchToHist(bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins) const;
-      TH1F *getHistogram(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins = 200);
+      void process() const;
 };

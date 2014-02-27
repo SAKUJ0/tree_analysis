@@ -7,14 +7,11 @@
 #include <TClass.h>
 
 class Branch {
+   friend class Tree;
       TBranch *tbranch;
       std::string name;
 
    public:
-      Branch(TTree *file, std::string name);
-
+      Branch(TTree *tree, std::string name);
       Int_t getType() const;
-
-      TBranch *getTBranch() const;
-      void setTBranch(TBranch *branch);
 };

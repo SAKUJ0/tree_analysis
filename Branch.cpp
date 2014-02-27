@@ -7,10 +7,6 @@ Branch::Branch(TTree *tree, std::string varname) {
    tbranch = branch;
 }
 
-TBranch *Branch::getTBranch() const {
-   return tbranch;
-}
-
 Int_t Branch::getType() const{
    TClass *tclass = new TClass();
    EDataType type;

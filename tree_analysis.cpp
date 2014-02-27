@@ -23,15 +23,14 @@ int main(int argc, char **argv) {
    TApplication theApp("App", &argc, argv);
 
    TFile *file = new TFile("tree.root", "READ");
-   Tree *tree = new Tree(file);
+   Tree *tree = new Tree(file, "LeptonAnalysis");
 
-   vector<string> varnames;
-   varnames.push_back("EcalEnergy");
-   varnames.push_back("TrackerRigidity");
+   tree->setBranch("EcalEnergy");
+   tree->setBranch("TrackerRigidity");
 
-   //tree->setHistogram(varnames, check, transform, 200);
-
-   tree->getHistogram(varnames, check, transform, 200)->Draw();
+   Histogram *hist = tree->setHistogram(check, transform, 200);
+   tree->process();
+   hist->getHistogram()->Draw();
 
    theApp.Run();
    return 0;
