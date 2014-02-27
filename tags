@@ -1,0 +1,101 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Branch	Branch.cpp	/^Branch::Branch(TTree *tree, std::string varname) {$/;"	f	class:Branch	signature:(TTree *tree, std::string varname)
+Branch	Branch.h	/^      Branch(TTree *file, std::string name);$/;"	p	class:Branch	access:public	signature:(TTree *file, std::string name)
+Branch	Branch.h	/^class Branch {$/;"	c
+Branch::Branch	Branch.cpp	/^Branch::Branch(TTree *tree, std::string varname) {$/;"	f	class:Branch	signature:(TTree *tree, std::string varname)
+Branch::Branch	Branch.h	/^      Branch(TTree *file, std::string name);$/;"	p	class:Branch	access:public	signature:(TTree *file, std::string name)
+Branch::getMax	Branch.cpp	/^Int_t Branch::getMax() const{$/;"	f	class:Branch	signature:() const
+Branch::getMax	Branch.h	/^      Int_t getMax() const;$/;"	p	class:Branch	access:public	signature:() const
+Branch::getMin	Branch.cpp	/^Int_t Branch::getMin() const{$/;"	f	class:Branch	signature:() const
+Branch::getMin	Branch.h	/^      Int_t getMin() const;$/;"	p	class:Branch	access:public	signature:() const
+Branch::getName	Branch.cpp	/^std::string Branch::getName() const{$/;"	f	class:Branch	signature:() const
+Branch::getName	Branch.h	/^      std::string getName() const;$/;"	p	class:Branch	access:public	signature:() const
+Branch::getSize	Branch.cpp	/^Int_t Branch::getSize() const{$/;"	f	class:Branch	signature:() const
+Branch::getSize	Branch.h	/^      Int_t getSize() const;$/;"	p	class:Branch	access:public	signature:() const
+Branch::getTBranch	Branch.cpp	/^TBranch *Branch::getTBranch() const {$/;"	f	class:Branch	signature:() const
+Branch::getTBranch	Branch.h	/^      TBranch *getTBranch() const;$/;"	p	class:Branch	access:public	signature:() const
+Branch::getTTree	Branch.cpp	/^TTree *Branch::getTTree() const{$/;"	f	class:Branch	signature:() const
+Branch::getTTree	Branch.h	/^      TTree *getTTree() const;$/;"	p	class:Branch	access:public	signature:() const
+Branch::getType	Branch.cpp	/^Int_t Branch::getType() const{$/;"	f	class:Branch	signature:() const
+Branch::getType	Branch.h	/^      Int_t getType() const;$/;"	p	class:Branch	access:public	signature:() const
+Branch::name	Branch.h	/^      std::string name;$/;"	m	class:Branch	access:private
+Branch::setTBranch	Branch.cpp	/^void Branch::setTBranch(TBranch* branch) {$/;"	f	class:Branch	signature:(TBranch* branch)
+Branch::setTBranch	Branch.h	/^      void setTBranch(TBranch *branch);$/;"	p	class:Branch	access:public	signature:(TBranch *branch)
+Branch::tbranch	Branch.h	/^      TBranch *tbranch;$/;"	m	class:Branch	access:private
+BranchToHist	Tree.cpp	/^TH1F *BranchToHist(const vector<Branch*> branch, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins) {$/;"	f	signature:(const vector<Branch*> branch, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins)
+CC	Makefile	/^CC=g++$/;"	m
+CFLAGS	Makefile	/^CFLAGS=$(shell root-config --cflags) -Wall -c$/;"	m
+EXECUTABLE	Makefile	/^EXECUTABLE=tree_analysis$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS=$(shell root-config --libs)$/;"	m
+OBJECTS	Makefile	/^OBJECTS=$(SOURCES:.cpp=.o)$/;"	m
+Run	tree_analysis.cpp	/^   theApp.Run();$/;"	p	file:	signature:()
+SOURCES	Makefile	/^SOURCES=tree_analysis.cpp Tree.cpp Branch.cpp$/;"	m
+Tree	Tree.cpp	/^Tree::Tree(TFile *file) {$/;"	f	class:Tree	signature:(TFile *file)
+Tree	Tree.h	/^      Tree(TFile *file);$/;"	p	class:Tree	access:public	signature:(TFile *file)
+Tree	Tree.h	/^class Tree {$/;"	c
+Tree::Tree	Tree.cpp	/^Tree::Tree(TFile *file) {$/;"	f	class:Tree	signature:(TFile *file)
+Tree::Tree	Tree.h	/^      Tree(TFile *file);$/;"	p	class:Tree	access:public	signature:(TFile *file)
+Tree::getHistogram	Tree.cpp	/^TH1F *Tree::getHistogram(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins) const {$/;"	f	class:Tree	signature:(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins) const
+Tree::getHistogram	Tree.h	/^      TH1F *getHistogram(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins = 200) const;$/;"	p	class:Tree	access:public	signature:(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins = 200) const
+Tree::getSize	Tree.cpp	/^Int_t Tree::getSize() const {$/;"	f	class:Tree	signature:() const
+Tree::getSize	Tree.h	/^      Int_t getSize() const;$/;"	p	class:Tree	access:public	signature:() const
+Tree::getTTree	Tree.cpp	/^TTree *Tree::getTTree() const {$/;"	f	class:Tree	signature:() const
+Tree::getTTree	Tree.h	/^      TTree *getTTree() const;$/;"	p	class:Tree	access:public	signature:() const
+Tree::setTTree	Tree.cpp	/^void Tree::setTTree(TTree* tree) {$/;"	f	class:Tree	signature:(TTree* tree)
+Tree::setTTree	Tree.h	/^      void setTTree(TTree *tree);$/;"	p	class:Tree	access:public	signature:(TTree *tree)
+Tree::ttree	Tree.h	/^      TTree *ttree;$/;"	m	class:Tree	access:private
+branch	Branch.cpp	/^   TBranch *branch = tree->GetBranch(varname.c_str());$/;"	l
+branches	Tree.cpp	/^   vector<Branch*> branches(number_of_branches);$/;"	p	file:	signature:(number_of_branches)
+check	tree_analysis.cpp	/^bool check(const vector<Float_t>& x) {$/;"	f	signature:(const vector<Float_t>& x)
+endl	Tree.cpp	/^         std::cerr << "Branch type not float\/int. Type ID: " << type[i] << std::endl;$/;"	m	class:std	file:
+file	tree_analysis.cpp	/^   TFile *file = new TFile("tree.root", "READ");$/;"	l
+getHistogram	Tree.cpp	/^TH1F *Tree::getHistogram(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins) const {$/;"	f	class:Tree	signature:(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins) const
+getHistogram	Tree.h	/^      TH1F *getHistogram(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins = 200) const;$/;"	p	class:Tree	access:public	signature:(const vector<std::string>& varname, bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins = 200) const
+getMax	Branch.cpp	/^Int_t Branch::getMax() const{$/;"	f	class:Branch	signature:() const
+getMax	Branch.h	/^      Int_t getMax() const;$/;"	p	class:Branch	access:public	signature:() const
+getMin	Branch.cpp	/^Int_t Branch::getMin() const{$/;"	f	class:Branch	signature:() const
+getMin	Branch.h	/^      Int_t getMin() const;$/;"	p	class:Branch	access:public	signature:() const
+getName	Branch.cpp	/^std::string Branch::getName() const{$/;"	f	class:Branch	signature:() const
+getName	Branch.h	/^      std::string getName() const;$/;"	p	class:Branch	access:public	signature:() const
+getSize	Branch.cpp	/^Int_t Branch::getSize() const{$/;"	f	class:Branch	signature:() const
+getSize	Branch.h	/^      Int_t getSize() const;$/;"	p	class:Branch	access:public	signature:() const
+getSize	Tree.cpp	/^Int_t Tree::getSize() const {$/;"	f	class:Tree	signature:() const
+getSize	Tree.h	/^      Int_t getSize() const;$/;"	p	class:Tree	access:public	signature:() const
+getTBranch	Branch.cpp	/^TBranch *Branch::getTBranch() const {$/;"	f	class:Branch	signature:() const
+getTBranch	Branch.h	/^      TBranch *getTBranch() const;$/;"	p	class:Branch	access:public	signature:() const
+getTTree	Branch.cpp	/^TTree *Branch::getTTree() const{$/;"	f	class:Branch	signature:() const
+getTTree	Branch.h	/^      TTree *getTTree() const;$/;"	p	class:Branch	access:public	signature:() const
+getTTree	Tree.cpp	/^TTree *Tree::getTTree() const {$/;"	f	class:Tree	signature:() const
+getTTree	Tree.h	/^      TTree *getTTree() const;$/;"	p	class:Tree	access:public	signature:() const
+getType	Branch.cpp	/^Int_t Branch::getType() const{$/;"	f	class:Branch	signature:() const
+getType	Branch.h	/^      Int_t getType() const;$/;"	p	class:Branch	access:public	signature:() const
+hist	Tree.cpp	/^   TH1F *hist = new TH1F("name","title", nbins, 0, 2);$/;"	l
+main	tree_analysis.cpp	/^int main(int argc, char **argv) {$/;"	f	signature:(int argc, char **argv)
+name	Branch.h	/^      std::string name;$/;"	m	class:Branch	access:private
+number_of_branches	Tree.cpp	/^   Int_t number_of_branches = branch.size();$/;"	l
+number_of_branches	Tree.cpp	/^   Int_t number_of_branches = varname.size();$/;"	l
+setTBranch	Branch.cpp	/^void Branch::setTBranch(TBranch* branch) {$/;"	f	class:Branch	signature:(TBranch* branch)
+setTBranch	Branch.h	/^      void setTBranch(TBranch *branch);$/;"	p	class:Branch	access:public	signature:(TBranch *branch)
+setTTree	Tree.cpp	/^void Tree::setTTree(TTree* tree) {$/;"	f	class:Tree	signature:(TTree* tree)
+setTTree	Tree.h	/^      void setTTree(TTree *tree);$/;"	p	class:Tree	access:public	signature:(TTree *tree)
+std::endl	Tree.cpp	/^         std::cerr << "Branch type not float\/int. Type ID: " << type[i] << std::endl;$/;"	m	class:std	file:
+tbranch	Branch.h	/^      TBranch *tbranch;$/;"	m	class:Branch	access:private
+tbranch	Tree.cpp	/^   vector<TBranch*> tbranch(number_of_branches);$/;"	p	file:	signature:(number_of_branches)
+tclass	Branch.cpp	/^   TClass *tclass = new TClass();$/;"	l
+transform	Tree.cpp	/^      hist->Fill(transform(var));$/;"	p	file:	signature:(var)
+transform	tree_analysis.cpp	/^Float_t transform(const vector<Float_t>& x) {$/;"	f	signature:(const vector<Float_t>& x)
+tree	Branch.cpp	/^   TTree *tree = this->getTTree();$/;"	l
+tree	Tree.cpp	/^   TTree *tree;$/;"	l
+tree	tree_analysis.cpp	/^   Tree *tree = new Tree(file);$/;"	l
+treesize	Tree.cpp	/^   Int_t treesize = branch[0]->getSize();$/;"	l
+ttree	Tree.h	/^      TTree *ttree;$/;"	m	class:Tree	access:private
+type	Branch.cpp	/^   EDataType type;$/;"	l
+type	Tree.cpp	/^   vector<Int_t> type(number_of_branches);$/;"	p	file:	signature:(number_of_branches)
+var	Tree.cpp	/^   vector<Float_t> var(number_of_branches);$/;"	p	file:	signature:(number_of_branches)
+var_int	Tree.cpp	/^   vector<UInt_t> var_int(number_of_branches);$/;"	p	file:	signature:(number_of_branches)
+varnames	tree_analysis.cpp	/^   vector<string> varnames;$/;"	l
