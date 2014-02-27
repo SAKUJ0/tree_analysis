@@ -6,7 +6,6 @@ using std::vector; using std::string;
 #include <TApplication.h>
 
 #include "Tree.h"
-#include "Branch.h"
 
 bool check(const vector<Float_t>& x) {
    return x[1] != 0.0;
@@ -29,6 +28,8 @@ int main(int argc, char **argv) {
    vector<string> varnames;
    varnames.push_back("EcalEnergy");
    varnames.push_back("TrackerRigidity");
+
+   //tree->setHistogram(varnames, check, transform, 200);
 
    tree->getHistogram(varnames, check, transform, 200)->Draw();
 
