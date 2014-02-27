@@ -1,9 +1,6 @@
-#include <iostream>
-#include <string>
 #include <vector>
 using std::vector;
 
-#include <TROOT.h>
 #include <TH1F.h>
 
 class Histogram {

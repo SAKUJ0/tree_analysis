@@ -1,7 +1,6 @@
 #include "Branch.h"
 
 Branch::Branch(TTree *tree, std::string varname) {
-
    name = varname;
    TBranch *branch = tree->GetBranch(varname.c_str());
    tbranch = branch;

@@ -3,10 +3,8 @@
 #include <vector>
 using std::vector;
 
-#include <TROOT.h>
 #include <TFile.h>
 #include <TTree.h>
-#include <TH1F.h>
 
 #include "Branch.h"
 #include "Histogram.h"
