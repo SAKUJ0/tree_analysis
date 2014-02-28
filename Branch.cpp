@@ -3,13 +3,13 @@
 
 
 ///Constructor
-Branch::Branch(TTree *tree, std::string varname) {
-
+Branch::Branch(TTree *tree, std::string varname)
+{
    name = varname;
    TBranch *branch = tree->GetBranch(varname.c_str());
    tbranch = branch;
 }
-/*< 
+/**< 
  * The constructor sets the two parameters to the corresponding member variables.
  * The TBranch has to be extracted from the TTree first.
  *
@@ -21,15 +21,15 @@ Branch::Branch(TTree *tree, std::string varname) {
 
 
 ///Return the var type of the Branch content
-Int_t Branch::getType() const{
-
+Int_t Branch::getType() const
+{
    TClass *tclass = new TClass();
    EDataType type;
    tbranch->GetExpectedType(*&tclass, type);
 
    return type;
 }
-/*<
+/**<
  * This method uses TDataType to determine the EDataType enumeration 
  * that correponds to the variables saved in this TBranch.
  *
