@@ -7,7 +7,7 @@ using std::vector;
 #include "Tree.h"
 
 bool check(const vector<Float_t>& x) {
-   return x[1] != 0.0;
+   return x[1] != 0.0 && x[0] / x[1] > 0.0 && x[0] / x[1] < 2.0;
 }
 
 Float_t transform(const vector<Float_t>& x) {
@@ -29,8 +29,11 @@ int main(int argc, char **argv) {
    tree->setBranch("TrackerRigidity");
 
    Histogram *hist = tree->setHistogram(check, transform, 200);
-   tree->process();
-
+//   tree->calculateMean();
+//   tree->calculateRMS();
+//   std::cerr << hist->getMean() << " +/- " << hist->getRMS() << std::endl;
+   
+   tree->fillHistograms();
    hist->getHistogram()->Draw();
 
    theApp.Run();

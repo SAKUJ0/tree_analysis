@@ -17,7 +17,7 @@ Histogram *Tree::setHistogram(bool (*check)(const vector<Float_t>&), Float_t (*t
    return hist;
 }
 
-void Tree::process() const {
+void Tree::traverse(void (Tree::*process)(const vector<Float_t>& var, const Int_t& j) const) const {
 
    Int_t treesize = ttree->GetEntriesFast();
    Int_t number_of_branches = branches.size();
@@ -45,16 +45,63 @@ void Tree::process() const {
    for(Int_t i=0; i<treesize; i++) {
       ttree->GetEntry(i);
 
-      for(Int_t j=0; j<number_of_branches; j++) {
+      for(Int_t j=0; j<number_of_branches; j++)
          if(type[j] == 13)  //13: UInt_t
             var[j] = static_cast<Float_t>(var_int[j]);
-      }
 
       for(Int_t j=0; j<number_of_histograms; j++) {
          if(histograms[j]->check(var) == false)
             continue;
-
-         histograms[j]->thistogram->Fill(histograms[j]->transform(var));
+         (*this.*process)(var, j); 
       }
+   }
+}
+
+void Tree::processFillHistograms(const vector<Float_t>& var, const Int_t& j) const {
+   histograms[j]->thistogram->Fill(histograms[j]->transform(var));
+}
+
+void Tree::fillHistograms() const {
+   traverse(&Tree::processFillHistograms);
+}
+
+void Tree::processCalculateMean(const vector<Float_t>& var, const Int_t& j) const {
+   histograms[j]->mean += histograms[j]->transform(var);
+   histograms[j]->nentries++;
+}
+
+void Tree::calculateMean() const {
+   Int_t number_of_histograms = histograms.size();
+   Int_t number_of_entries = 0;
+
+   traverse(&Tree::processCalculateMean);
+
+   for (Int_t i = 0; i < number_of_histograms; i++ ){
+      number_of_entries = histograms[i]->nentries;
+      if(number_of_entries != 0)
+         histograms[i]->mean /= number_of_entries;
+   }
+}
+
+void Tree::processCalculateRMS(const vector<Float_t>& var, const Int_t& j) const {
+   histograms[j]->rms += pow(histograms[j]->transform(var) - histograms[j]->mean, 2);
+}
+
+void Tree::calculateRMS() const {
+   Int_t number_of_histograms = histograms.size();
+   Int_t number_of_entries = 0;
+
+   bool mean_is_calculated = true;
+   for (Int_t i = 0; i < number_of_histograms; i++ )
+      mean_is_calculated = histograms[i]->nentries > 0;
+   if(!mean_is_calculated)
+      calculateMean();
+
+   traverse(&Tree::processCalculateRMS);
+
+   for (Int_t i = 0; i < number_of_histograms; i++ ){
+      number_of_entries = histograms[i]->nentries;
+      if(number_of_entries != 0)
+         histograms[i]->rms = sqrt(histograms[i]->rms / number_of_entries);
    }
 }
