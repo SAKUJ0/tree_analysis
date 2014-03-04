@@ -2,6 +2,5 @@ tree.root
 *.o
 tree_analysis
 *.swp
-doxyconfig
 html/*
 latex/*
