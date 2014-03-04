@@ -1,7 +1,5 @@
 #include "Branch.h"
 
-
-
 ///Constructor
 Branch::Branch(TTree *tree, std::string varname)
 {
@@ -39,6 +37,7 @@ Int_t Branch::getType() const
  *
  * From http://root.cern.ch/root/html532/TDataType.h :
  *
+ * ~~~{.c}
  * enum EDataType {
  *    kChar_t   = 1,  kUChar_t  = 11, kShort_t    = 2,  kUShort_t = 12,
  *    kInt_t    = 3,  kUInt_t   = 13, kLong_t     = 4,  kULong_t  = 14,
@@ -51,4 +50,5 @@ Int_t Branch::getType() const
  *    kDataTypeAliasUnsigned_t = 21,
  *    kNumDataTypes
  * }
+ * ~~~
  */
