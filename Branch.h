@@ -10,6 +10,6 @@ class Branch {
       std::string name;
 
    public:
-      Branch(TTree *tree, std::string name);
+      Branch(TTree *tree, const std::string& name);
       Int_t getType() const;
 };
