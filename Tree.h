@@ -24,7 +24,8 @@ class Tree {
       Tree(TFile *file, const std::string& name);
 
       void setBranch(const std::string& name);
-      Histogram *setHistogram(bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins = 200);
+      Histogram *setHistogram(bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), const std::string& name, Int_t nbins, Float_t min, Float_t max, std::string title = "");
+      Histogram *setHistogramLog(bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), const std::string& name, Int_t nbins, Float_t min, Float_t max, std::string title = "");
 
       void fillHistograms() const;
       void calculateMean() const;

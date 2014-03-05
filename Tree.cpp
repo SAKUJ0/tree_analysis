@@ -11,8 +11,25 @@ void Tree::setBranch(const std::string& name) {
    branches.push_back(new Branch(ttree, name));
 }
 
-Histogram *Tree::setHistogram(bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), Int_t nbins) {
-   Histogram *hist = new Histogram(check, transform, nbins);
+Histogram *Tree::setHistogram(bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), const std::string& name, Int_t nbins, Float_t min, Float_t max, std::string title) {
+   Histogram *hist = new Histogram(check, transform, name, nbins, min, max, title);
+   histograms.push_back(hist);
+   return hist;
+}
+
+Histogram *Tree::setHistogramLog(bool (*check)(const vector<Float_t>&), Float_t (*transform)(const vector<Float_t>&), const std::string& name, Int_t nbins, Float_t min, Float_t max, std::string title) {
+   Float_t edges[nbins+1];
+   Float_t edgesLog;
+
+   for ( Int_t i = 0; i<nbins+1 ; i++)
+   {
+      edgesLog = (log(min) + i*(log(max)-log(min))/nbins)/log(10.0);
+      edges[i] = pow(10.0, edgesLog);
+      std::cerr << edges[i] << std::endl;
+//      std::cerr << log(100)/log(10) << std::endl;
+   }
+
+   Histogram *hist = new Histogram(check, transform, name, nbins, edges, title);
    histograms.push_back(hist);
    return hist;
 }
@@ -66,7 +83,12 @@ void Tree::fillHistograms() const {
 }
 
 void Tree::processCalculateMean(const vector<Float_t>& var, const Int_t& j) const {
-   histograms[j]->mean += histograms[j]->transform(var);
+   Float_t value = histograms[j]->transform(var);
+   histograms[j]->mean += value;
+   if (histograms[j]->min == 0.0 || histograms[j]->min > value)
+      histograms[j]->min = value;
+   if (histograms[j]->max == 0.0 || histograms[j]->max < value)
+      histograms[j]->max = value;
    histograms[j]->nentries++;
 }
 
